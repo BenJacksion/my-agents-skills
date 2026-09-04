@@ -1,0 +1,4 @@
+interface:
+  display_name: "复杂度与分解"
+  short_description: "诊断复杂度并设计模块接口与分解边界"
+  default_prompt: "使用 $complexity-decomposition 诊断复杂度并比较模块分解方案。"

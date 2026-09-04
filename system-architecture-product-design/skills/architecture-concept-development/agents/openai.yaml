@@ -1,0 +1,4 @@
+interface:
+  display_name: "架构概念开发"
+  short_description: "从需求生成多概念并递归形成可验证架构"
+  default_prompt: "使用 $architecture-concept-development 为这个产品生成多个系统概念并形成架构。"

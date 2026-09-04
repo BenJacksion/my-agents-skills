@@ -1,0 +1,4 @@
+interface:
+  display_name: "系统思维与涌现"
+  short_description: "识别实体关系边界并解释系统级涌现与失效"
+  default_prompt: "使用 $system-thinking-emergence 分析这个系统的实体、关系、边界和涌现。"

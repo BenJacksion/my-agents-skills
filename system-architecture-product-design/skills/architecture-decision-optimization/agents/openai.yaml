@@ -1,0 +1,4 @@
+interface:
+  display_name: "架构决策与优化"
+  short_description: "分析权衡空间敏感度并优化强耦合架构决策"
+  default_prompt: "使用 $architecture-decision-optimization 分析架构权衡空间、敏感度和决策顺序。"

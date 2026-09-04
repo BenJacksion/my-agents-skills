@@ -1,0 +1,4 @@
+interface:
+  display_name: "架构策略与治理"
+  short_description: "把利益相关者目标和上下游约束转为架构治理"
+  default_prompt: "使用 $architecture-strategy-governance 梳理利益相关者、目标、上下游约束和架构基线。"
