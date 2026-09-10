@@ -1,0 +1,5 @@
+interface:
+  display_name: "架构之道"
+  short_description: "连接系统设计、架构验证与项目设计"
+  default_prompt: "使用 $architecture-way 按《架构之道》分析这个系统与项目，给出架构边界、验证计划和执行方案。"
+

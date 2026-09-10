@@ -1,0 +1,5 @@
+interface:
+  display_name: "架构验证"
+  short_description: "用证据检查架构和项目设计是否闭合"
+  default_prompt: "使用 $architecture-validation 为这个架构建立可追溯的验证矩阵和最小验证计划。"
+

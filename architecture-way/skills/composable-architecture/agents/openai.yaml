@@ -1,0 +1,5 @@
+interface:
+  display_name: "可组合架构"
+  short_description: "设计可组合的服务、契约和变化边界"
+  default_prompt: "使用 $composable-architecture 检查这些服务能否在真实场景中组合，并补全契约与失败行为。"
+
