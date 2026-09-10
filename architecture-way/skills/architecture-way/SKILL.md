@@ -1,6 +1,6 @@
 ---
 name: architecture-way
-description: 用《架构之道》的 The Method 连接软件系统设计与项目设计。适用于按易变性分解、可组合架构、架构验证以及时间、成本、风险和执行方案的综合决策；不用于脱离项目上下文的技术选型或详细编码。
+description: 用《架构之道：软件构建的设计方法》的 The Method 连接软件系统设计与项目设计。适用于按易变性分解、可组合架构、架构验证以及时间、成本、风险和执行方案的综合决策；不用于脱离项目上下文的技术选型或详细编码。
 metadata:
   source: 互联网一手资料综合研究，见 ../../research.md
   version: "1.0.0"
@@ -68,4 +68,3 @@ metadata:
 - [InformIT 书籍页面](https://www.informit.com/store/righting-software-9780136524038)
 - [InformIT：Software System Decomposition](https://www.informit.com/articles/article.aspx?p=2995357)
 - [InformIT：How to Calculate Risk in Your Projects](https://www.informit.com/articles/article.aspx?p=2995358)
-

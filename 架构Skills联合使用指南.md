@@ -7,6 +7,8 @@
 
 仓库另有独立的第三个平级能力域 [`enterprise-application-architecture/`](enterprise-application-architecture/)，专门处理企业应用内部的 5 视图、领域/数据/开发/运行/物理架构，以及分布式、云和数据平台。它不属于本指南的两域联合流程，使用方式见该目录的 [README.md](enterprise-application-architecture/README.md)。
 
+如果需要把产品思维、系统架构、企业应用架构和《架构之道：软件构建的设计方法》全部放入软件生命周期，参阅[软件工程流程](software-engineering-process/README.md)。
+
 ## 一、先分清两个能力域
 
 两套 Skills 不是同一层面的重复实现：

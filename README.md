@@ -8,6 +8,7 @@
 - `system-architecture-product-design/`：从系统思维、架构分析、概念创建、复杂度分解到架构决策。
 - `architecture-way/`：从易变性分解、可组合架构、架构验证到项目网络、时间/成本/风险和执行方案。
 - `enterprise-application-architecture/`：从业务用例、领域与数据到开发、运行、物理、分布式、云和数据平台架构。
+- `software-engineering-process/`：按软件生命周期编排上述能力域的 Skills、Agents、阶段门和交接。
 
 ## 产品思维
 
@@ -35,7 +36,7 @@
 系统思维 -> 架构分析 -> 概念创建 -> 复杂度分解 -> 决策优化
 ```
 
-## 《架构之道》
+## 《架构之道：软件构建的设计方法》
 
 - `architecture-way/README.md`：能力域说明、书籍定位、核心原则和边界。
 - `architecture-way/agents/`：系统设计与项目设计负责人 Agent。
@@ -61,6 +62,27 @@
 业务目标/用例 -> 领域与数据 -> 5 视图 -> 质量属性与演进 -> 分布式/云/数据平台
 ```
 
+## 软件工程流程
+
+- `software-engineering-process/README.md`：项目级生命周期和能力域边界。
+- `software-engineering-process/capability-catalog.md`：全部 Skills/Agents 的阶段路由表。
+- `software-engineering-process/agent-contracts.md`：阶段状态、质量门、交接和回退规则。
+- `software-engineering-process/agents/software-engineering-orchestrator.md`：项目级总编排 Agent。
+
+默认链路：
+
+```text
+问题与机会
+  -> 产品目标
+  -> 系统理解
+  -> 系统架构
+  -> 企业应用设计
+  -> 软件结构与项目设计
+  -> 实现与集成
+  -> 验证与发布
+  -> 运行反馈与演进
+```
+
 ## 使用方式
 
 1. 根据用户问题和路由规则选择对应 Skill 或 Agent。
@@ -69,3 +91,5 @@
 4. 缺失信息必须标记为未知；只有当缺失信息会改变方向时才集中提问。
 
 `architecture-way/` 与 `system-architecture-product-design/` 的联合使用方式参阅[架构 Skills 联合使用指南](架构Skills联合使用指南.md)。`enterprise-application-architecture/` 是独立的第三个平级能力域，详见其自身的 `README.md`、`capability-catalog.md` 和 `agent-contracts.md`。
+
+需要按软件工程生命周期选择和串联全部能力时，参阅[软件工程流程](software-engineering-process/README.md)；该流程层只负责编排，不替代各能力域的专业方法。

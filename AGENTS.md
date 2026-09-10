@@ -29,8 +29,9 @@
 
 - `product-thinking/` 是产品思维能力域，内容来自互联网一手来源研究。
 - `system-architecture-product-design/` 是系统架构能力域，内容来自《系统架构：复杂系统的产品设计与开发》及其提炼材料。
-- `architecture-way/` 是《架构之道》能力域，内容来自 Juval Löwy 的 *Righting Software* 及其官方/出版社资料。
+- `architecture-way/` 是《架构之道：软件构建的设计方法》能力域，内容来自 Juval Löwy 的 *Righting Software* 及其官方/出版社资料。
 - 各能力域平级维护，不把一个能力域的文件放入另一个能力域目录。
+- `software-engineering-process/` 是项目级流程编排层，只负责按软件生命周期路由现有 Skills/Agents、管理阶段门和交接状态，不承载新的书籍方法论。
 - 原始资料和中间研究放入对应能力域的 `research.md` 或 `source-materials/`。
 - 每个能力域应有自己的 `README.md`、`capability-catalog.md` 和 `agent-contracts.md`。
 

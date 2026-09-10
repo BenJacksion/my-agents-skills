@@ -1,0 +1,4 @@
+interface:
+  display_name: "软件工程流程"
+  short_description: "按生命周期编排全部产品与架构 Skills"
+  default_prompt: "使用 $software-engineering-process 判断当前软件工程阶段，选择主 Agent 和专项 Skills，并给出阶段产物、质量门和下一步。"
