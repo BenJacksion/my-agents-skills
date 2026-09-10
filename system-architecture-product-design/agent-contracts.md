@@ -31,6 +31,7 @@ ArchitectureState:
   interfaces: []
   decisions: []
   trade_space: []
+  evidence: []
   risks: []
   validations: []
   open_questions: []

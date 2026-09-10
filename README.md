@@ -9,6 +9,7 @@
 - `system-architecture-product-design/agent-contracts.md`：Agent 输入、输出、职责边界、交接条件和失败回退规则。
 - `system-architecture-product-design/capability-catalog.md`：能力目录、章节映射、路由规则和统一数据契约。
 - `system-architecture-product-design/chapter-playbook.md`：按原书章节整理的实践方法、产出和质量门槛。
+- `系统架构_Skills与Agents框架.md`：细粒度 Skills/Agents 的参考框架；其能力已映射到本仓库的核心节点，作为扩展和路由依据。
 
 ## 能力链路
 
@@ -19,6 +20,8 @@
 ```
 
 根据任务边界可以从中间节点开始。例如，已有系统盘点可以直接使用架构分析；只做模块边界诊断可以从复杂度分解开始。
+
+细粒度能力不重复创建：形式分析、功能分析和架构映射由 `architecture-analysis-mapping` 承载；需求分析和生命周期上下文由 `architecture-strategy-governance` 承载；权衡空间和优化求解由 `architecture-decision-optimization` 承载。架构原则审查作为总控交付前的质量门执行。
 
 ## 统一契约
 

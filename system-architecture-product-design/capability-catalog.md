@@ -21,6 +21,22 @@
 | DO-02 | 15 | 分析权衡空间、帕累托前沿和敏感度 | `architecture-decision-optimization` | `decision-analyst` |
 | DO-03 | 16 | 用六类模式和启发式搜索求解组合问题 | `architecture-decision-optimization` | `decision-analyst` |
 
+## 与《系统架构_Skills与Agents框架》的一致性
+
+框架文档把能力拆成 13 个细粒度 Skill、11 个 Agent；本仓库优先复用已有实现，将它们折叠为 6 个核心 Skill、8 个 Agent，避免为同一套方法重复创建节点：
+
+| 框架文档中的细粒度能力 | 现有 Skill | 现有 Agent |
+| --- | --- | --- |
+| `system-thinking-analysis`、`complexity-analysis` | `system-thinking-emergence`、`complexity-decomposition` | `system-explorer`、`complexity-manager` |
+| `form-analysis`、`function-analysis`、`architecture-mapping` | `architecture-analysis-mapping` | `architecture-analyst` |
+| `concept-modeling`、`concept-generation` | `architecture-concept-development` | `concept-architect` |
+| `stakeholder-requirement-analysis`、`lifecycle-context-analysis` | `architecture-strategy-governance` | `architecture-governor` |
+| `decomposition-management` | `complexity-decomposition` | `complexity-manager` |
+| `trade-space-analysis`、`architecture-optimization` | `architecture-decision-optimization` | `decision-analyst` |
+| `architecture-principle-audit` | `complex-system-architecture` 的架构原则质量门 | `system-architecture-orchestrator` / `complex-system-architect` |
+
+框架文档中的 `FunctionalArchitect`、`PhysicalArchitect` 和 `IntegrationArchitect` 不单独落地为 Agent：它们分别作为功能、形式和映射视角，由 `architecture-analyst` 或总控按任务需要调用。这样保留职责分离，也避免小任务被迫串联过多角色。
+
 ## 统一数据契约
 
 所有能力单元都接受以下最小上下文；缺失字段可为空，但必须标记为未知：
@@ -61,6 +77,7 @@ traceability: []
 - 用户说“模块化、分层、复杂度、耦合、组织边界、分解”时路由到 `complexity-decomposition`。
 - 用户说“架构治理、利益相关者、战略、平台、供应链、法规、产品论证”时路由到 `architecture-strategy-governance`。
 - 用户说“权衡、方案组合、帕累托、敏感度、优化、架构决策”时路由到 `architecture-decision-optimization`。
+- 用户说“原则审查、架构评审、质量门、26 条原则”时路由到 `complex-system-architecture`，由 `system-architecture-orchestrator` 或 `complex-system-architect` 执行质量门，不新增独立 Skill。
 - 同时命中多个路由时，按“系统思维 -> 分析映射 -> 概念创建 -> 复杂度 -> 决策优化”顺序串联；不要跳过价值和边界。
 
 ## 质量门槛
