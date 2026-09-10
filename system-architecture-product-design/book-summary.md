@@ -169,7 +169,7 @@ ABCD（Architecture Business Case Decision）框架把技术架构与商业论�
 
 ## 提炼为 Skill 与 Agent
 
-本次采用“一个总入口 Skill + 六个可独立路由的能力 Skill + 七个角色 Agent”。总入口保持全局一致性，能力 Skill 分别处理系统思维、架构分析、概念开发、复杂度、策略治理和决策优化；角色 Agent 负责把这些能力编排成可执行工作流。这样既避免把全书拆成互不相容的微技能，又能让单项任务只加载必要方法。
+本次采用“一个总入口 Skill + 六个可独立路由的能力 Skill + 七个工作流角色 Agent + 一个兼容入口总架构师 Agent”。总入口保持全局一致性，能力 Skill 分别处理系统思维、架构分析、概念开发、复杂度、策略治理和决策优化；角色 Agent 负责把这些能力编排成可执行工作流，兼容入口用于保留原有总架构师调用方式。这样既避免把全书拆成互不相容的微技能，又能让单项任务只加载必要方法。
 
 ### 总入口 Skill：complex-system-architecture
 
@@ -190,9 +190,9 @@ ABCD（Architecture Business Case Decision）框架把技术架构与商业论�
 
 各能力 Skill 的 `SKILL.md` 都包含独立的触发边界、执行步骤、输出契约和质量门槛；统一术语与逐章映射见 [capability-catalog.md](capability-catalog.md) 和 [chapter-playbook.md](chapter-playbook.md)。
 
-### Agent：complex-system-architect
+### Agent：工作流角色与兼容入口
 
-Agent 负责长期角色和工作编排：解决歧义、创造概念、管理复杂度并交付架构。它调用 Skill，而不重复保存方法细节；同时明确输入、输出、权限边界与停止条件。
+工作流角色 Agent 负责系统探索、治理、分析、概念、复杂度和决策等专门职责；`complex-system-architect` 是兼容入口总架构师，负责综合编排和架构质量门。所有 Agent 都调用 Skill，而不重复保存方法细节；同时明确输入、输出、权限边界与停止条件。
 
 Standalone Agent 尚无统一的跨平台标准，因此使用常见的 Markdown + YAML frontmatter 形式。迁移到具体运行时只需映射 `name`、`description`、`model` 和 `skills` 字段，正文职责保持不变。
 

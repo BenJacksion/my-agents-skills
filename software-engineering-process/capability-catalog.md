@@ -1,6 +1,6 @@
 # 软件工程流程能力目录
 
-本目录把仓库现有的 24 个 Skills 和 13 个 Agents 映射到软件工程生命周期。它是路由表，不复制各能力域的详细方法。
+本目录把仓库现有的 25 个 Skills 和 14 个 Agents 映射到软件工程生命周期。它是路由表，不复制各能力域的详细方法。
 
 ## 阶段与 Skills
 
@@ -10,8 +10,8 @@
 | S1 产品发现与决策 | `product-thinking`、`product-discovery`、`product-outcomes-metrics`、`product-assumption-testing`、`product-strategy-prioritization` | 用户问题、机会、结果、假设、实验和优先级 |
 | S2 系统理解与治理 | `system-thinking-emergence`、`architecture-analysis-mapping`、`architecture-strategy-governance` | 系统边界、实体关系、利益相关者、价值、约束和现状映射 |
 | S3 系统概念与架构决策 | `complex-system-architecture`、`architecture-concept-development`、`complexity-decomposition`、`architecture-decision-optimization` | 无关方案功能、多个概念、复杂度账本、决策和权衡空间 |
-| S4 企业应用架构 | `enterprise-application-architecture`、`domain-application-modeling`、`application-five-views`、`evolutionary-architecture-modernization` | 用例、领域、数据、开发、运行、物理五视图、目标/过渡架构 |
-| S4 分布式与平台专项 | `distributed-application-architecture`、`cloud-native-delivery`、`data-platform-architecture` | 分布式机制、云交付、数据平台和治理方案 |
+| S4 企业应用架构 | `enterprise-application-architecture`、`domain-application-modeling`、`application-five-views`、`evolutionary-architecture-modernization` | 用例、领域、接口、数据/存储、开发、运行、物理五视图、目标/过渡架构 |
+| S4 分布式与平台专项 | `distributed-application-architecture`、`cloud-native-delivery`、`data-platform-architecture` | 分布式机制、物理拓扑、云交付、数据血缘/API、平台治理方案 |
 | S5 软件结构与项目设计 | `architecture-way`、`volatility-decomposition`、`composable-architecture`、`project-design` | 易变性边界、服务契约、项目网络、关键路径、时间/成本/风险选项 |
 | S5/S7 架构验证 | `architecture-validation` | 关键行为、契约、质量属性、架构和项目设计的验证证据 |
 | S7/S8 结果与反馈 | `product-outcomes-metrics`、`product-assumption-testing`、`evolutionary-architecture-modernization`、`project-design` | 发布结果、实验反馈、剩余风险、架构复审和下一轮计划 |

@@ -23,6 +23,11 @@ EnterpriseApplicationState:
   runtime_architecture: []
   physical_architecture: []
   quality_attribute_scenarios: []
+  interface_contracts: []
+  database_decisions: []
+  platform_evaluation: []
+  physical_topology: []
+  data_lineage: []
   distributed_options: []
   cloud_options: []
   data_platform_options: []
@@ -77,6 +82,8 @@ enterprise-application-architect
 
 - 用例、关键领域概念和边界已经标记；
 - 数据责任、关键状态和主要交互可追溯；
+- 对外接口的语义、稳定性边界和 DTO/领域对象关系已记录；
+- 领域模型到聚合、存储模型、读写模型和数据流转的映射已记录；
 - 候选架构仍区分事实、假设和决策。
 
 ### 5 视图 -> 分布式/云/数据平台
@@ -84,6 +91,8 @@ enterprise-application-architect
 - 关键逻辑职责和数据所有权已明确；
 - 质量属性场景至少列出触发条件、响应和度量；
 - 已知的运行、部署、数据规模和组织约束已记录；
+- 物理拓扑、故障域、容量与容灾约束已记录；
+- 关键数据链路、消费者、指标/标签和数据 API 已有责任归属；
 - 没有因为“微服务”“云”或“中台”这些名词直接锁定方案。
 
 ### 属性/场景 -> 运行决策
@@ -96,7 +105,16 @@ enterprise-application-architect
 
 - 每个技术机制说明解决的约束、引入的复杂度和验证方式；
 - 关键跨视图冲突已显式列出；
+- 接口契约、数据库/存储决策、技术中台判断、物理拓扑和数据血缘没有脱离总体架构单独存在；
 - 结论包含推荐、替代方案、放弃理由和复审条件。
+
+### 企业应用架构 -> 软件结构与项目设计
+
+- 领域、模块和服务责任已区分，不能把逻辑边界直接当成部署单元；
+- 对外接口契约、内部依赖方向和数据所有权已可交给 `architecture-way`；
+- 数据库/存储决策已说明访问模式、一致性边界、迁移影响和回滚方式；
+- 技术中台、采购、自研或外包判断已说明复用收益、退出成本和维护责任；
+- 物理拓扑、容量、容灾、数据 API 和关键验证活动已经可以转换为项目活动和依赖。
 
 ## 失败与回退
 

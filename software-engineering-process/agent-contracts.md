@@ -14,16 +14,28 @@ SoftwareEngineeringState:
   facts: []
   assumptions: []
   evidence: []
+  product_context: []
+  users: []
+  user_contexts: []
   stakeholders: []
   goals: []
   requirements: []
   opportunities: []
   outcomes: []
+  metrics: []
   experiments: []
+  priority_decisions: []
+  solution_options: []
+  quality_guardrails: []
   system_context: []
   concepts: []
   architecture_decisions: []
   application_views: []
+  interface_contracts: []
+  database_decisions: []
+  platform_evaluation: []
+  physical_topology: []
+  data_lineage: []
   services: []
   contracts: []
   project_network: []
@@ -98,6 +110,14 @@ product-discovery
 - 高风险假设有验证方式；
 - 取舍包含做与不做的机会成本。
 
+交给 S2/S3 时还必须包含：
+
+- 目标用户、使用情境、行为证据和机会；
+- 用户/业务结果、指标、基线、成功标准和质量护栏；
+- 候选方案、关键假设及验证状态；
+- 优先级、机会成本、资源/时间/合规约束；
+- 需要系统或架构处理的边界、数据、运行和交付约束。
+
 ### S2：系统理解与治理
 
 主 Agent：
@@ -138,6 +158,13 @@ product-discovery
 - 高敏感、高耦合决策有依据、权衡和验证条件；
 - 形成系统架构基线，而非只有技术清单。
 
+交给 S4 时还必须包含：
+
+- 系统边界、利益相关者、目标、关键用例和约束；
+- 选定概念、候选概念的淘汰理由、形式/功能映射和系统级决策；
+- 复杂度、分解平面、接口、故障传播和验证行动；
+- 仍未决的系统级问题、证据限制和复审条件。
+
 ### S4：企业应用架构
 
 主 Agent：
@@ -156,6 +183,13 @@ product-discovery
 - 非功能需求转成场景、决策和度量；
 - 分布式、云、微服务和数据平台有约束证据；
 - 当前、目标和过渡架构可追踪。
+
+交给 S5 时还必须包含：
+
+- 对外接口契约、内部依赖方向和服务责任；
+- 数据库/存储决策、访问模式、一致性边界和迁移影响；
+- 技术中台、采购、自研或外包的判断及维护/退出责任；
+- 物理拓扑、容量、容灾、数据 API 和关键验证活动。
 
 ### S5：软件结构与项目设计
 

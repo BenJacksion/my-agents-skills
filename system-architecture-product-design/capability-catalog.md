@@ -23,7 +23,7 @@
 
 ## 与参考框架的一致性
 
-[source-materials/skills-agents-framework.md](source-materials/skills-agents-framework.md) 把能力拆成 13 个细粒度 Skill、11 个 Agent；本仓库优先复用已有实现，将它们折叠为 6 个核心 Skill、8 个 Agent，避免为同一套方法重复创建节点：
+[source-materials/skills-agents-framework.md](source-materials/skills-agents-framework.md) 把能力拆成 13 个细粒度 Skill、11 个 Agent；本仓库优先复用已有实现，将它们折叠为 6 个能力 Skill、1 个总入口 Skill 和 8 个 Agent，避免为同一套方法重复创建节点：
 
 | 框架文档中的细粒度能力 | 现有 Skill | 现有 Agent |
 | --- | --- | --- |

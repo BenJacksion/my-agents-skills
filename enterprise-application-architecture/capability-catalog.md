@@ -14,17 +14,30 @@
 | EAA-05 | 把部署、容器、DevOps、Kubernetes、可观测性和自动化运维纳入架构设计 | `cloud-native-delivery` | `distributed-data-architect` |
 | EAA-06 | 区分大数据平台与数据中台，设计从采集、治理、加工到数据服务和分析的闭环 | `data-platform-architecture` | `distributed-data-architect` |
 
-## 来源映射
+## 章节主题到执行能力
 
-| 公开主题 | 能力 |
-| --- | --- |
-| 5 视图法、逻辑/数据/开发/运行/物理架构 | `application-five-views` |
-| 用例、UI 原型、领域模型、分层和整洁架构 | `domain-application-modeling` |
-| 非功能需求、架构演进、遗留系统重构 | `evolutionary-architecture-modernization` |
-| 访问量、缓存、内存数据库、事务、消息队列、分布式数据库 | `distributed-application-architecture` |
-| 微服务、DDD、事件风暴、服务化和测试 | `distributed-application-architecture` |
-| 云计算、DevOps、Docker、Kubernetes、自动化运维 | `cloud-native-delivery` |
-| 数据中台、Hadoop、Spark、采集、治理、ETL、数仓、标签、索引、多维分析、HBase | `data-platform-architecture` |
+以下矩阵以 [research.md](research.md) 的公开研究和
+[chapter-notes.md](chapter-notes.md) 的用户补充笔记为准，检查每个章节主题是否已经进入
+Skill、Agent 和可交接产物。笔记中的书中结论仍属于用户提供的阅读材料，不自动视为外部一手证据。
+
+| 章节主题 | Skill | Agent | 必须形成的产物 |
+| --- | --- | --- | --- |
+| 第 1 章：架构师职责、业务/技术翻译、抽象、分治、成本与演进、五视图 | `enterprise-application-architecture`、`application-five-views` | `enterprise-application-architect` | 事实/假设/未知、决策人、成功标准、五视图基线和追溯关系 |
+| 第 2 章：Actor、Use Case、System Boundary、原型、事件流、领域模型与技术可行性 | `domain-application-modeling` | `application-design-architect` | 用例表、主成功场景/扩展场景、领域概念、状态、不变量和可行性约束 |
+| 第 3 章：领域优先、聚合、实体/值对象/领域服务、仓库/工厂、防腐层、关系/继承/NoSQL、读写模型 | `domain-application-modeling`、`distributed-application-architecture` | `application-design-architect`、`distributed-data-architect` | 领域到存储追溯、数据所有权、存储访问模式、聚合一致性边界和读写模型 |
+| 第 4 章：接口语义、DTO 与领域对象、分层/整洁架构、模块、技术选型、平台/采购/自研/外包 | `domain-application-modeling`、`application-five-views` | `application-design-architect`、`enterprise-application-architect` | 接口契约、依赖方向、模块责任、技术选型记录和技术中台评估 |
+| 第 5 章：属性→场景→决策、意图架构、架构跑道、使能故事、遗留改造 | `evolutionary-architecture-modernization` | `application-design-architect` | 质量属性场景、当前/目标/过渡架构、使能故事、回滚点和复审触发器 |
+| 第 6 章：集中式/分布式、网络拓扑、DMZ、负载均衡、可用区、容量与容灾 | `application-five-views`、`distributed-application-architecture`、`cloud-native-delivery` | `distributed-data-architect` | 物理拓扑、故障域、容量模型、恢复目标、切换路径和部署责任 |
+| 第 7 章：按规模演进、缓存、内存数据库、事务、队列、分布式数据库 | `distributed-application-architecture` | `distributed-data-architect` | 负载/故障/一致性模型、机制收益与代价、失效模式、指标和验证场景 |
+| 第 8 章：微服务前提、统一语言、子域、限界上下文、治理、测试和调优 | `domain-application-modeling`、`distributed-application-architecture` | `application-design-architect`、`distributed-data-architect` | 服务责任、数据所有权、边界理由、治理能力、测试策略和迁移顺序 |
+| 第 9 章：DevOps、容器、Kubernetes、有状态组件、自动化运维 | `cloud-native-delivery` | `distributed-data-architect` | 交付流水线、状态/配置/权限、拓扑、扩缩容、备份恢复、回滚和成本责任 |
+| 第 10-11 章：数据驱动业务、采集、治理、标准、质量、主数据、指标、标签、索引、数仓与数据服务 | `data-platform-architecture` | `distributed-data-architect` | 业务域→指标域→数据模型→数据 API、血缘、责任、质量指标和数据产品 |
+
+## 能力覆盖说明
+
+当前 7 个企业应用 Skill 已覆盖研究中的五视图、领域/数据、开发、运行/演进、物理、分布式/微服务、云交付和数据平台主题。
+其中“架构师能力模型”“接口设计细则”“数据库映射策略”“技术中台评估”“物理拓扑细节”和“数据链路追溯”
+不是新建微技能，而是作为输入、输出和质量门嵌入现有 Skill/Agent。
 
 ## 路由规则
 
@@ -55,6 +68,11 @@ enterprise_application:
   runtime_architecture: []
   physical_architecture: []
   quality_attribute_scenarios: []
+  interface_contracts: []
+  database_decisions: []
+  platform_evaluation: []
+  physical_topology: []
+  data_lineage: []
   existing_architecture: []
   target_architecture: []
   transition_architecture: []
@@ -74,6 +92,11 @@ facts: []
 assumptions: []
 evidence: []
 architecture_views: []
+interface_contracts: []
+database_decisions: []
+platform_evaluation: []
+physical_topology: []
+data_lineage: []
 decisions: []
 tradeoffs: []
 risks: []
