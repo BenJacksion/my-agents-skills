@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品思维"
+  short_description: "把模糊产品诉求转为价值目标和候选概念"
+  default_prompt: "使用 $product-thinking 梳理这个产品的受益者、价值、问题陈述、目标和候选概念。"

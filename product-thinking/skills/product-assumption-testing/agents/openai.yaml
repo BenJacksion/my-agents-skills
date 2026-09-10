@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品假设测试"
+  short_description: "识别高风险假设并设计短周期验证实验"
+  default_prompt: "使用 $product-assumption-testing 拆解这个方案的关键假设并设计验证实验。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品结果与指标"
+  short_description: "定义结果、成功标准、基线和产品指标"
+  default_prompt: "使用 $product-outcomes-metrics 为这个产品定义可观察结果、成功标准和指标。"

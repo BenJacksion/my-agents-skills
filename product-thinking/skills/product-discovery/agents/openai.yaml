@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品发现"
+  short_description: "从用户行为和情境中发现真实产品机会"
+  default_prompt: "使用 $product-discovery 从真实用户故事中提炼问题、机会和下一步研究。"

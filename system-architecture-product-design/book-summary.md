@@ -206,8 +206,10 @@ Standalone Agent 尚无统一的跨平台标准，因此使用常见的 Markdown
 - `agents/{system-explorer,architecture-analyst,concept-architect,complexity-manager,architecture-governor,decision-analyst,system-architecture-orchestrator}.md`：角色 Agent 套件；
 - `agents/complex-system-architect.md`：兼容旧入口的总架构师 Agent；
 - `capability-catalog.md`：能力路由和统一数据契约；
-- `chapter-playbook.md`：16 章逐章实践手册。
+- `chapter-playbook.md`：16 章逐章实践手册；
 - `agent-contracts.md`：共享状态对象、输入输出契约、交接条件、失败回退和验收问题。
+- `source-materials/book-ocr.md`：原书 OCR 文本资料；
+- `source-materials/skills-agents-framework.md`：细粒度 Skills/Agents 参考框架。
 
 ## 示例调用
 

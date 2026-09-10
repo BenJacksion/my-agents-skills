@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品策略与优先级"
+  short_description: "把产品方向转为透明的取舍和优先级"
+  default_prompt: "使用 $product-strategy-prioritization 分析产品策略、优先级和团队取舍。"
