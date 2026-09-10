@@ -1,12 +1,13 @@
 # 产品与系统架构 Agents & Skills
 
-将互联网一手来源中的产品思维方法、《系统架构：复杂系统的产品设计与开发》中的系统架构方法，以及 Juval Löwy《架构之道：软件构建的设计方法》的系统设计与项目设计方法，转化为可路由、可协作、可验证的 Agents 与 Skills。
+将互联网一手来源中的产品思维方法、《系统架构：复杂系统的产品设计与开发》中的系统架构方法、Juval Löwy《架构之道：软件构建的设计方法》的系统设计与项目设计方法，以及《架构真意：企业级应用架构设计方法论与实践》的企业应用架构方法，转化为可路由、可协作、可验证的 Agents 与 Skills。
 
 ## 目录
 
 - `product-thinking/`：从用户问题、产品结果、假设实验和优先级取舍中形成产品决策。
 - `system-architecture-product-design/`：从系统思维、架构分析、概念创建、复杂度分解到架构决策。
 - `architecture-way/`：从易变性分解、可组合架构、架构验证到项目网络、时间/成本/风险和执行方案。
+- `enterprise-application-architecture/`：从业务用例、领域与数据到开发、运行、物理、分布式、云和数据平台架构。
 
 ## 产品思维
 
@@ -47,6 +48,19 @@
 易变性分解 -> 可组合架构 -> 架构验证 -> 项目设计 -> 跟踪与反馈
 ```
 
+## 《架构真意》
+
+- `enterprise-application-architecture/README.md`：企业级应用架构能力域说明、书籍定位和边界。
+- `enterprise-application-architecture/agents/`：企业应用总架构、应用设计、分布式与数据架构 Agent。
+- `enterprise-application-architecture/skills/`：5 视图、领域建模、架构演进、分布式应用、云端交付和数据平台 Skills。
+- `enterprise-application-architecture/research.md`：基于互联网公开书目、目录和内容简介的研究与证据边界。
+
+默认链路：
+
+```text
+业务目标/用例 -> 领域与数据 -> 5 视图 -> 质量属性与演进 -> 分布式/云/数据平台
+```
+
 ## 使用方式
 
 1. 根据用户问题和路由规则选择对应 Skill 或 Agent。
@@ -54,4 +68,4 @@
 3. 按该能力域的 `agent-contracts.md` 输出事实、假设、证据、决策、风险和下一步验证行动。
 4. 缺失信息必须标记为未知；只有当缺失信息会改变方向时才集中提问。
 
-跨能力域联合使用时，参阅[架构 Skills 联合使用指南](架构Skills联合使用指南.md)，了解两个架构能力域的路由、交接数据、Agent 协作和提示词模板。
+`architecture-way/` 与 `system-architecture-product-design/` 的联合使用方式参阅[架构 Skills 联合使用指南](架构Skills联合使用指南.md)。`enterprise-application-architecture/` 是独立的第三个平级能力域，详见其自身的 `README.md`、`capability-catalog.md` 和 `agent-contracts.md`。

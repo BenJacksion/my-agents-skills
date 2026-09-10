@@ -1,0 +1,4 @@
+interface:
+  display_name: "领域应用建模"
+  short_description: "从用例形成领域、数据和代码边界"
+  default_prompt: "使用 $domain-application-modeling 从用例和业务规则建立领域模型、数据责任和应用分层。"

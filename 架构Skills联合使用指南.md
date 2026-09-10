@@ -5,6 +5,8 @@
 - [`system-architecture-product-design/`](system-architecture-product-design/)：复杂系统的系统思维、架构分析、概念开发、复杂度治理和架构决策。
 - [`architecture-way/`](architecture-way/)：软件系统设计与项目设计，包括易变性分解、可组合架构、架构验证、项目网络和时间/成本/风险。
 
+仓库另有独立的第三个平级能力域 [`enterprise-application-architecture/`](enterprise-application-architecture/)，专门处理企业应用内部的 5 视图、领域/数据/开发/运行/物理架构，以及分布式、云和数据平台。它不属于本指南的两域联合流程，使用方式见该目录的 [README.md](enterprise-application-architecture/README.md)。
+
 ## 一、先分清两个能力域
 
 两套 Skills 不是同一层面的重复实现：
@@ -423,4 +425,3 @@ $volatility-decomposition、$composable-architecture 和 $architecture-validatio
 - [系统架构 Agent 契约](system-architecture-product-design/agent-contracts.md)
 - [架构之道能力目录](architecture-way/capability-catalog.md)
 - [架构之道 Agent 契约](architecture-way/agent-contracts.md)
-

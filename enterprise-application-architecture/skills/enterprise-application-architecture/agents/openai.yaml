@@ -1,0 +1,4 @@
+interface:
+  display_name: "企业应用架构"
+  short_description: "把业务用例闭合到数据、运行和部署架构"
+  default_prompt: "使用 $enterprise-application-architecture 设计或评审这个企业应用，建立 5 个架构视图并给出可验证的演进方案。"
