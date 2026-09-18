@@ -1,0 +1,4 @@
+interface:
+  display_name: "本体建模"
+  short_description: "从问题与行动出发，建立知识工程或运营本体，分离语义推理、数据约束和行动权限"
+  default_prompt: "使用 $ontology-modeling，根据我的领域材料建立本体，选择知识工程或运营模式，并给出数据映射和验证用例。"

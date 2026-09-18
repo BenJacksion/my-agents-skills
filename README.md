@@ -9,6 +9,7 @@
 - `architecture-way/`：从易变性分解、可组合架构、架构验证到项目网络、时间/成本/风险和执行方案。
 - `enterprise-application-architecture/`：从业务用例、领域与数据到开发、运行、物理、分布式、云和数据平台架构。
 - `software-engineering-process/`：按软件生命周期编排上述能力域的 Skills、Agents、阶段门和交接。
+- [ontology-modeling/](ontology-modeling/README.md)：知识工程 RDF/OWL/SHACL 与 Palantir 对象—关系—行动本体建模，独立维护公开标准与产品文档来源。
 
 ## 产品思维
 
