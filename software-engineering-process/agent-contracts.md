@@ -1,6 +1,6 @@
 # 软件工程流程 Agent 契约
 
-本文件定义项目级总编排 Agent 如何协调四个能力域。它不替代各能力域的 `agent-contracts.md`，下游结果必须遵守原能力域契约。
+本文件定义项目级总编排 Agent 如何协调五个能力域。它不替代各能力域的 `agent-contracts.md`，下游结果必须遵守原能力域契约。
 
 ## 共享状态
 
@@ -11,6 +11,13 @@ SoftwareEngineeringState:
     scope: string
     lifecycle_stage: string
     decision_deadline: string|null
+  orchestration:
+    primary_skill: string|null
+    skill_plan: []
+    dependencies: []
+    handoffs: []
+    quality_gate_status: []
+    stop_conditions: []
   facts: []
   assumptions: []
   evidence: []
@@ -27,6 +34,12 @@ SoftwareEngineeringState:
   priority_decisions: []
   solution_options: []
   quality_guardrails: []
+  competency_questions: []
+  ontology_mode: string|null
+  ontology_elements: []
+  identity_mappings: []
+  semantic_rules: []
+  ontology_validation: []
   system_context: []
   concepts: []
   architecture_decisions: []
@@ -136,6 +149,7 @@ product-discovery
 - 利益相关者、价值交换、需求和约束可追溯；
 - 既有系统有形式、功能、接口和映射基线；
 - 涌现行为和故障传播不被局部组件假设替代。
+- 若任务涉及语义边界、共享词汇、身份或关系，需追加 `ontology-modeling`，并保留能力问题、术语上下文和身份/关系证据。
 
 ### S3：概念、复杂度与系统架构
 
@@ -190,6 +204,7 @@ product-discovery
 - 数据库/存储决策、访问模式、一致性边界和迁移影响；
 - 技术中台、采购、自研或外包的判断及维护/退出责任；
 - 物理拓扑、容量、容灾、数据 API 和关键验证活动。
+- 若使用 `ontology-modeling`，还必须交接模式、能力问题、语义元素、身份映射、规则归属、数据映射和未解决的不等价项。
 
 ### S5：软件结构与项目设计
 
@@ -239,6 +254,7 @@ product-discovery
 - `architecture-validation`
 - `product-assumption-testing`
 - `product-outcomes-metrics`
+- `ontology-modeling`（仅当发布范围包含语义模型、数据映射或行动模型）
 
 通过条件：
 
@@ -246,6 +262,7 @@ product-discovery
 - 未通过项有责任人、风险和发布处理；
 - 发布决策说明时间、成本、风险、质量和用户结果；
 - 结果基线已建立。
+- 若发布范围包含语义模型、数据映射或行动模型，还需验证正常、异常和边界样例，并报告映射损失、未运行检查和版本影响。
 
 ### S8：运行反馈与演进
 
@@ -260,6 +277,10 @@ product-discovery
 - `enterprise-application-architect`
 - `architecture-way-lead`
 
+专项 Skill：
+
+- `ontology-modeling`（仅当运行反馈涉及语义模型漂移、身份冲突、规则变化或映射兼容性）
+
 必须判断：
 
 - 实际用户/业务结果是否支持原目标；
@@ -267,6 +288,7 @@ product-discovery
 - 项目预测是否需要修正；
 - 哪个最小范围需要回退；
 - 下一轮进入 S1、S2、S4 还是 S5。
+- 语义模型的词汇、身份、规则、映射或版本是否发生漂移，以及是否需要回到 S2 或 S4。
 
 ## 禁止事项
 

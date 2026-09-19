@@ -1,0 +1,4 @@
+interface:
+  display_name: "技能元编排"
+  short_description: "管理多 Skill 任务的选择、依赖调度、交接与质量门"
+  default_prompt: "使用 $skill-orchestration 管理当前任务的 Skill 选择、调用顺序、交接状态和质量门；单一 Skill 任务保持最小调度。"

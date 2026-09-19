@@ -1,14 +1,17 @@
 # 软件工程流程能力目录
 
-本目录把仓库现有的 25 个 Skills 和 14 个 Agents 映射到软件工程生命周期。它是路由表，不复制各能力域的详细方法。
+本目录把仓库现有的 28 个 Skills 和 14 个 Agents 映射到软件工程生命周期。它是路由表，不复制各能力域的详细方法。
 
 ## 阶段与 Skills
 
 | 阶段 | 推荐 Skills | 主要产物 |
 | --- | --- | --- |
 | S0 任务受理 | `software-engineering-process` | 问题分类、当前阶段、范围、决策人和成功标准 |
+| S0-S8 元技能调度 | `skill-orchestration` | Skill/Agent 选择、依赖顺序、交接状态、质量门和回退 |
+| S0-S8 任务执行规范 | `engineering-task-discipline` | 假设澄清、最小修改、验证证据和中文交付 |
 | S1 产品发现与决策 | `product-thinking`、`product-discovery`、`product-outcomes-metrics`、`product-assumption-testing`、`product-strategy-prioritization` | 用户问题、机会、结果、假设、实验和优先级 |
 | S2 系统理解与治理 | `system-thinking-emergence`、`architecture-analysis-mapping`、`architecture-strategy-governance` | 系统边界、实体关系、利益相关者、价值、约束和现状映射 |
+| S2/S4/S7-S8 语义与本体专项 | `ontology-modeling` | 能力问题、共享词汇、身份/关系/规则、数据映射、语义验证和版本演进 |
 | S3 系统概念与架构决策 | `complex-system-architecture`、`architecture-concept-development`、`complexity-decomposition`、`architecture-decision-optimization` | 无关方案功能、多个概念、复杂度账本、决策和权衡空间 |
 | S4 企业应用架构 | `enterprise-application-architecture`、`domain-application-modeling`、`application-five-views`、`evolutionary-architecture-modernization` | 用例、领域、接口、数据/存储、开发、运行、物理五视图、目标/过渡架构 |
 | S4 分布式与平台专项 | `distributed-application-architecture`、`cloud-native-delivery`、`data-platform-architecture` | 分布式机制、物理拓扑、云交付、数据血缘/API、平台治理方案 |
@@ -22,7 +25,10 @@
 - 系统架构：7 个，覆盖 S2、S3；
 - 《架构之道：软件构建的设计方法》：5 个，覆盖 S5、S7、S8；
 - 企业应用架构：7 个，覆盖 S4、S7、S8；
+- 本体建模：1 个，作为 S2、S4、S7-S8 的语义专项能力；
+- 元技能调度：1 个，负责跨 Skill 的选择、依赖编排和交接；
 - 流程编排：1 个，负责 S0 和跨阶段路由。
+- 执行规范：1 个，约束跨阶段的澄清、修改和验证方式。
 
 ## 阶段与 Agents
 
@@ -51,7 +57,8 @@
 4. 用户要求用例、DDD、五视图、分层、遗留系统、微服务、云或数据平台：进入 S4。
 5. 用户要求服务边界、易变性、契约、关键路径、排期、成本或风险：进入 S5。
 6. 用户要求架构评审、端到端验证、发布判断或结果复盘：进入 S7/S8。
-7. 如果问题跨越多个阶段，由 `software-engineering-orchestrator` 选择一个主阶段，其他阶段只提供必要输入，不并行生成完整方案。
+7. 用户要求共享词汇、概念/对象身份、关系、规则归属、RDF/OWL/SHACL、Foundry 对象/链接/行动或跨模型映射：按问题所在阶段接入 `ontology-modeling`；语义边界问题偏 S2，领域/数据/应用模型偏 S4，验证和漂移偏 S7/S8。
+8. 如果问题跨越多个阶段，由 `software-engineering-orchestrator` 选择一个主阶段，其他阶段只提供必要输入，不并行生成完整方案。
 
 ## 非覆盖范围
 

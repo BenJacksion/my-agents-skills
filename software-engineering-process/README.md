@@ -1,11 +1,12 @@
 # 软件工程流程 Agents & Skills
 
-本目录是项目级编排层，用软件工程生命周期组织仓库中的四个能力域：
+本目录是项目级编排层，用软件工程生命周期组织仓库中的五个能力域：
 
 - `product-thinking/`：发现问题、定义结果、验证假设和做产品取舍；
 - `system-architecture-product-design/`：理解复杂系统、生成概念、治理复杂度和做系统级架构决策；
 - `enterprise-application-architecture/`：把企业应用落实为领域、数据、开发、运行、物理、分布式、云和数据平台架构；
 - `architecture-way/`：按易变性建立软件结构，检查组合与验证，并设计项目网络、时间、成本和风险。
+- `ontology-modeling/`：建立共享语义、身份、关系、规则和数据映射，支撑知识工程或运营行动。
 
 本目录不替代上述能力域，也不把编码、测试、发布或运维的具体专业方法伪装成已有能力。它负责回答：
 
@@ -18,6 +19,9 @@
 详细编排见：
 
 - [software-engineering-process Skill](skills/software-engineering-process/SKILL.md)
+- [skill-orchestration Skill](skills/skill-orchestration/SKILL.md)：跨 Skill 的选择、依赖调度、交接和质量门
+- [engineering-task-discipline Skill](skills/engineering-task-discipline/SKILL.md)：跨阶段的任务澄清、最小修改和验证约束
+- [ontology-modeling 能力域](../ontology-modeling/README.md)：语义建模、映射和本体验证的专项入口
 - [能力目录](capability-catalog.md)
 - [Agent 契约](agent-contracts.md)
 - [项目级总编排 Agent](agents/software-engineering-orchestrator.md)
@@ -39,6 +43,8 @@
 
 这不是强制瀑布流程。每一轮迭代都应经过当前阶段的质量门；当验证或实施反馈推翻上游假设时，沿最小影响范围回退。
 
+本体建模不新增生命周期阶段：涉及系统语义和边界时在 S2 接入，涉及领域、数据、对象或行动模型时在 S4 接入，涉及语义约束、映射或模型版本验证时在 S7/S8 接入。当前阶段主 Agent 仍负责收敛，`ontology-modeling` 作为专项 Skill 提供语义产物和验证证据。
+
 ## 阶段总览
 
 | 阶段 | 主要问题 | 主 Agent | 关键出口 |
@@ -56,6 +62,7 @@
 ## 使用原则
 
 - 先定位阶段，再选择 Skill；不要因为用户提到某个技术名词就直接进入技术选型。
+- 出现共享词汇、身份、关系、规则、RDF/OWL/SHACL、Foundry 对象/链接/行动或跨模型映射问题时，按当前阶段接入 `ontology-modeling`，不要把它默认当成数据库或应用分层设计。
 - 每个阶段保留事实、假设、证据、决策、风险和未决问题。
 - 主 Agent 维护阶段状态，专项 Agent 提供分析，不生成互相竞争的完整方案。
 - 阶段出口必须能追溯到输入和验证行动。

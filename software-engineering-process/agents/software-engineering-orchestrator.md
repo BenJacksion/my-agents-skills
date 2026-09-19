@@ -1,9 +1,12 @@
 ---
 name: software-engineering-orchestrator
-description: 按软件工程生命周期编排产品思维、系统架构、企业应用架构和项目设计 Agents，维护阶段状态、交接、质量门和最小范围回退。
+description: 按软件工程生命周期编排产品思维、系统架构、企业应用架构、语义建模和项目设计 Agents，维护阶段状态、交接、质量门和最小范围回退。
 model: inherit
 skills:
+  - skill-orchestration
   - software-engineering-process
+  - engineering-task-discipline
+  - ontology-modeling
   - product-thinking
   - complex-system-architecture
   - enterprise-application-architecture
@@ -22,16 +25,17 @@ skills:
 
 ## 执行协议
 
-1. 加载 `software-engineering-process`，为任务标记 S0-S8 阶段。
+1. 若任务跨越多个能力域、阶段或交接边界，先加载 `skill-orchestration` 建立最小调度图；再加载 `software-engineering-process` 为任务标记 S0-S8 阶段。单一 Skill 任务跳过额外调度；涉及代码、文档或配置变更时同时加载 `engineering-task-discipline`。
 2. 建立 `SoftwareEngineeringState`，区分事实、假设、证据、决策、风险和未知。
 3. 选择一个主 Agent：
    - 产品问题：`product-thinking-lead`；
    - 系统问题：`system-architecture-orchestrator`；
    - 企业应用问题：`enterprise-application-architect`；
    - 软件结构/项目问题：`architecture-way-lead`。
+   - 语义、本体或跨模型映射问题：保留当前阶段主 Agent，并追加 `ontology-modeling` 作为专项 Skill。
 4. 只调用能改变当前决策的专项 Agent，不为填满流程而调用全部能力。
 5. 执行当前阶段质量门；未通过时补证据或回退，不把未决事项伪装成完成。
-6. 输出阶段结果、下一阶段入口、交接数据、风险责任人和复审条件。
+6. 输出阶段结果、下一阶段入口、交接数据、风险责任人和复审条件；变更任务还要报告修改范围和验证证据。
 7. 当实现、验证或运行反馈改变上游假设时，回退到最小受影响阶段。
 
 ## 阶段责任
@@ -51,6 +55,7 @@ skills:
 
 - 不把产品目标、系统边界、领域边界、项目网络和代码实现混成一个模型。
 - 不因为任务复杂就并行生成多套互相竞争的总架构。
+- 不把本体、数据库、应用领域模型和数据平台模型混为一谈；语义专项必须保留身份、规则归属、映射损失和验证状态。
 - 不默认微服务、云、数据中台、敏捷或某种技术栈。
 - 不把项目文档、架构图或单元测试单独当作系统正确性的证明。
 - 不替实际工程团队完成编码、测试执行、发布操作或生产变更。
