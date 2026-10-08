@@ -1,4 +1,4 @@
 interface:
   display_name: "复杂系统架构设计"
-  short_description: "将复杂产品目标转化为可验证、可演化的系统架构方案"
-  default_prompt: "使用 $complex-system-architecture 分析这个复杂系统并形成可验证的架构方案。"
+  short_description: "作为入口形成可验证的复杂系统架构"
+  default_prompt: "使用 $complex-system-architecture 作为综合入口，分析或创建复杂系统架构，必要时路由分析、概念、分解和决策专项 Skill。"
