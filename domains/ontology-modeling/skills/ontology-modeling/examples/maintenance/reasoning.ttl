@@ -1,0 +1,33 @@
+@prefix ex: <https://example.org/reasoning/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:model a owl:Ontology .
+ex:Ticket a owl:Class .
+ex:Employee a owl:Class ; owl:disjointWith ex:Machine .
+ex:Machine a owl:Class .
+# 不给 assignedTo 声明 Employee range，避免自动补类型掩盖反例。
+ex:assignedTo a owl:ObjectProperty .
+
+# 充分且必要条件：可据事实自动分类。
+ex:EmployeeAssignedTicket a owl:Class ; owl:equivalentClass [
+    a owl:Class ; owl:intersectionOf ( ex:Ticket [
+        a owl:Restriction ; owl:onProperty ex:assignedTo ; owl:someValuesFrom ex:Employee
+    ] )
+] .
+# 仅必要条件：知道它属于该类才可推出限制，不能反向分类。
+ex:RequiredTicket a owl:Class ; rdfs:subClassOf ex:Ticket , [
+    a owl:Restriction ; owl:onProperty ex:assignedTo ; owl:someValuesFrom ex:Employee
+] .
+ex:OnlyEmployeeTicket a owl:Class ; rdfs:subClassOf ex:Ticket , [
+    a owl:Restriction ; owl:onProperty ex:assignedTo ; owl:allValuesFrom ex:Employee
+] .
+# 不可满足类没有实例时，全局本体仍可一致。
+ex:ImpossibleOwner a owl:Class ; rdfs:subClassOf ex:Employee , ex:Machine .
+
+ex:worker a ex:Employee .
+ex:classified a ex:Ticket ; ex:assignedTo ex:worker .
+ex:unknownOwner a owl:NamedIndividual .
+ex:unclassified a ex:Ticket ; ex:assignedTo ex:unknownOwner .
+ex:empty a ex:OnlyEmployeeTicket .
+ex:required a ex:RequiredTicket .

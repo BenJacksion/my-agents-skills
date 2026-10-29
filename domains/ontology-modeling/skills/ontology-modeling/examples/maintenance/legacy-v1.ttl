@@ -1,0 +1,12 @@
+@prefix ex: <https://example.org/maintenance/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# 受控旧数据：每张工单至多一个负责人，且有可信的指派生效时间。
+ex:asset-A a ex:Asset .
+ex:t1 a ex:Ticket ; ex:concerns ex:asset-A ; ex:status "Open" ;
+    ex:legacyOwner ex:u1 ; ex:legacySince "2026-01-01T00:00:00Z"^^xsd:dateTime .
+ex:t2 a ex:Ticket ; ex:concerns ex:asset-A ; ex:status "Open" .
+ex:u1 a ex:Employee .
+ex:legacy-snapshot a prov:Entity ;
+    prov:generatedAtTime "2026-01-02T00:00:00Z"^^xsd:dateTime .

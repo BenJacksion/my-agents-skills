@@ -1,0 +1,11 @@
+PREFIX ex: <https://example.org/maintenance/>
+# 调用者绑定 ?asset 和 ?at；在查询前先通过数据契约校验。
+SELECT ?ticket ?owner WHERE {
+    ?ticket a ex:Ticket ; ex:concerns ?asset ; ex:status "Open" .
+    OPTIONAL {
+        ?assignment a ex:Assignment ; ex:ticket ?ticket ; ex:role "Primary" ;
+            ex:assignee ?owner ; ex:validFrom ?start .
+        OPTIONAL { ?assignment ex:validTo ?end }
+        FILTER (?start <= ?at && (!BOUND(?end) || ?at < ?end))
+    }
+}

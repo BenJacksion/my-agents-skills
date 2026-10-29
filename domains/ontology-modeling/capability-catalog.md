@@ -18,3 +18,9 @@
 - 不为只需术语表的任务强加 OWL，也不为只需查询的模型增加行动体系。
 
 验收按[交接契约](agent-contracts.md)执行；新建、评审与演进使用同一 Skill，按任务裁剪产物。
+
+## 按需深入
+
+- 表达取舍、身份、时间与词汇对齐：[建模选择](skills/ontology-modeling/references/modeling-decisions.md)。
+- 版本迁移、状态转换与运营失败：[演进与行动验证](skills/ontology-modeling/references/evolution-and-operations.md)。
+- 查询、SHACL、OWL 与受控迁移的实际复现：[案例与验证脚本](skills/ontology-modeling/references/executable-example.md)。

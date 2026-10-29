@@ -1,0 +1,39 @@
+@prefix ex: <https://example.org/maintenance/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:TicketShape a sh:NodeShape ;
+    sh:targetClass ex:Ticket ; sh:targetSubjectsOf ex:concerns ;
+    sh:class ex:Ticket ;
+    sh:property [ sh:path ex:concerns ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Asset ] ;
+    sh:property [ sh:path ex:status ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "Open" "Closed" ) ] .
+
+ex:AssignmentShape a sh:NodeShape ;
+    sh:targetClass ex:Assignment ; sh:targetSubjectsOf ex:ticket ;
+    sh:class ex:Assignment ;
+    sh:property [ sh:path ex:ticket ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Ticket ] ;
+    sh:property [ sh:path ex:assignee ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Employee ] ;
+    sh:property [ sh:path ex:role ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "Primary" "Reviewer" ) ] ;
+    sh:property [ sh:path ex:validFrom ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:dateTime ; sh:lessThan ex:validTo ] ;
+    sh:property [ sh:path ex:validTo ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path prov:generatedAtTime ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime ] ;
+    sh:sparql [
+        sh:message "同一工单的主负责人有效区间不能重叠。" ;
+        sh:select """
+            PREFIX ex: <https://example.org/maintenance/>
+            SELECT $this WHERE {
+                $this ex:ticket ?ticket ; ex:role "Primary" ; ex:validFrom ?start .
+                OPTIONAL { $this ex:validTo ?end }
+                ?other a ex:Assignment ; ex:ticket ?ticket ; ex:role "Primary" ; ex:validFrom ?otherStart .
+                OPTIONAL { ?other ex:validTo ?otherEnd }
+                FILTER ($this != ?other)
+                FILTER ((!BOUND(?otherEnd) || ?start < ?otherEnd) &&
+                        (!BOUND(?end) || ?otherStart < ?end))
+            }
+        """
+    ] .

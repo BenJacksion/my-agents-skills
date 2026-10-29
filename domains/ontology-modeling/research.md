@@ -209,6 +209,19 @@ SELECT ?ticket ?assignee WHERE {
 
 以上不是完整 OWL 推理验证，也不是 Foundry Action、权限或外部副作用测试；后者仍需连接真实环境执行。
 
+### 2026-10-30 工程补充与运行证据
+
+本次将教学模型、数据、shapes、查询与推理夹具分开保存，补充[可复现案例](skills/ontology-modeling/references/executable-example.md)、[建模选择](skills/ontology-modeling/references/modeling-decisions.md)及[演进与行动验证](skills/ontology-modeling/references/evolution-and-operations.md)。新增内容属于方法与工程示例，不改写上述原始检索证据；未重新检索 Foundry 版本或标准发布状态。
+
+已运行[验证脚本](skills/ontology-modeling/scripts/verify_example.py)，环境为 Python 3.12、Java 17.0.12、RDFLib 7.6.0、pySHACL 0.40.1、Owlready2 0.48；使用其内置 HermiT，jar SHA-256 为 `97e53f519720a0a2e328556e03b806aa239347c85e57637a935e6433ed2ad3a8`。
+
+- 通过：19 项用例，覆盖历史与边界查询、未知答案、目标覆盖、SHACL 正常与异常数据、区间重叠、来源要求、受控 v1→v2 迁移与拒绝条件，以及 OWL 自动分类、必要/充分条件、存在/全称限制、不可满足类与全局不一致。
+- 通过：只复制 Skill 到临时目录后，从其他工作目录执行同一脚本；执行前后全部输入文件 SHA-256 一致。
+- 通过：仓库统一静态校验（28 个 Skills、14 个 Agents）、本 Skill 的 skill-creator 校验及差异空白检查。
+- 未运行：自动 OWL profile 合规检查、完整双时间历史重建、推理性能基准、Foundry 行动/权限/并发/幂等/外部副作用测试与生产迁移。
+
+脚本固定直接依赖版本并输出实际运行环境；这不代表对其他 Python/Java 组合或所有传递依赖版本均已验证。运营契约仍是测试设计，不因本地语义验证通过而升级为平台运行证据。
+
 ## 9. 一手来源索引
 
 | 编号 | 一手来源 | 本次核验方式 |

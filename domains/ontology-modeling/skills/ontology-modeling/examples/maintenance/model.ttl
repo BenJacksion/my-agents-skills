@@ -1,0 +1,20 @@
+@prefix ex: <https://example.org/maintenance/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:model a owl:Ontology ; owl:versionInfo "2.0-example" .
+ex:Ticket a owl:Class .
+ex:Asset a owl:Class .
+ex:Person a owl:Class .
+ex:Employee a owl:Class ; rdfs:subClassOf ex:Person .
+ex:Assignment a owl:Class .
+
+ex:concerns a owl:ObjectProperty ; rdfs:domain ex:Ticket ; rdfs:range ex:Asset .
+ex:ticket a owl:ObjectProperty ; rdfs:domain ex:Assignment ; rdfs:range ex:Ticket .
+ex:assignee a owl:ObjectProperty ; rdfs:domain ex:Assignment ; rdfs:range ex:Employee .
+ex:denotes a owl:ObjectProperty ; rdfs:comment "源记录指向业务实体；不声明二者为同一个体。" .
+ex:status a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:role a owl:DatatypeProperty ; rdfs:range xsd:string .
+ex:validFrom a owl:DatatypeProperty ; rdfs:range xsd:dateTime .
+ex:validTo a owl:DatatypeProperty ; rdfs:range xsd:dateTime .

@@ -46,6 +46,8 @@ Foundry 的行列读访问控制不自动延伸到行动写入及下游数据；
 
 未连接 Foundry 时输出设计与测试计划，不声称已经部署或平台测试通过。
 
+需要状态转换表、主负责人模型演进，以及并发、重复提交、刷新和外部超时的责任矩阵时，读取[演进与行动验证](evolution-and-operations.md)。其中明确区分业务要求、已有平台证据和待环境验证项；本地 RDF 案例不执行这些运营测试。
+
 ## 来源与适用版本
 
 平台结论依据 2026-09-18 研究时的官方资料：[对象与主键](https://palantir.com/docs/foundry/object-link-types/create-object-type/)、[链接](https://palantir.com/docs/foundry/object-link-types/create-link-type/)、[行动](https://palantir.com/docs/foundry/action-types/overview/)、[提交条件](https://palantir.com/docs/foundry/action-types/submission-criteria/)、[权限与副作用](https://palantir.com/docs/foundry/action-types/permissions/)。实施时核对目标环境和最新文档，尤其是存储版本、编辑模式和权限配置。

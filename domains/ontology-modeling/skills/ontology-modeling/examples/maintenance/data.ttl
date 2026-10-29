@@ -1,0 +1,29 @@
+@prefix ex: <https://example.org/maintenance/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:asset-A a ex:Asset .
+ex:t1 a ex:Ticket ; ex:concerns ex:asset-A ; ex:status "Open" .
+# 未指派也属于查询范围，不冒充数据完整的交付工单。
+ex:t2 a ex:Ticket ; ex:concerns ex:asset-A ; ex:status "Open" .
+ex:u1 a ex:Employee .
+ex:u2 a ex:Employee .
+
+ex:a1 a ex:Assignment ; ex:ticket ex:t1 ; ex:assignee ex:u1 ; ex:role "Primary" ;
+    ex:validFrom "2026-01-01T00:00:00Z"^^xsd:dateTime ;
+    ex:validTo "2026-01-15T00:00:00Z"^^xsd:dateTime ;
+    prov:wasDerivedFrom ex:dispatch-log ;
+    prov:generatedAtTime "2026-01-02T00:00:00Z"^^xsd:dateTime .
+ex:a2 a ex:Assignment ; ex:ticket ex:t1 ; ex:assignee ex:u2 ; ex:role "Primary" ;
+    ex:validFrom "2026-01-15T00:00:00Z"^^xsd:dateTime ;
+    prov:wasDerivedFrom ex:dispatch-log ;
+    prov:generatedAtTime "2026-01-16T00:00:00Z"^^xsd:dateTime .
+ex:a3 a ex:Assignment ; ex:ticket ex:t1 ; ex:assignee ex:u1 ; ex:role "Reviewer" ;
+    ex:validFrom "2026-01-15T00:00:00Z"^^xsd:dateTime ;
+    prov:wasDerivedFrom ex:dispatch-log ;
+    prov:generatedAtTime "2026-01-16T00:00:00Z"^^xsd:dateTime .
+
+ex:dispatch-log a prov:Entity .
+# 两条源记录映射到同一个业务人员；记录本身不合并。
+ex:hr-record-17 a prov:Entity ; ex:denotes ex:u1 .
+ex:directory-record-92 a prov:Entity ; ex:denotes ex:u1 .
