@@ -1,0 +1,5 @@
+interface:
+  display_name: "项目设计"
+  short_description: "从架构和验证活动推导项目网络，比较关键路径、资源、成本与风险"
+  default_prompt: "使用 $project-design 将这个软件架构转成项目网络，并比较时间、成本和风险不同的执行选项。"
+

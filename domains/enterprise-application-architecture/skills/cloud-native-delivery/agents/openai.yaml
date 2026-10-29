@@ -1,0 +1,4 @@
+interface:
+  display_name: "云端交付与运维"
+  short_description: "连接业务运行约束与云端交付，设计流水线、部署、恢复和运维责任"
+  default_prompt: "使用 $cloud-native-delivery 设计这个企业应用的云部署、交付流水线、观测和恢复方案。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "复杂系统架构设计"
+  short_description: "编排系统理解、概念开发、复杂度分解与架构决策，收敛跨域设计问题"
+  default_prompt: "使用 $complex-system-architecture 作为综合入口，分析或创建复杂系统架构，必要时路由分析、概念、分解和决策专项 Skill。"

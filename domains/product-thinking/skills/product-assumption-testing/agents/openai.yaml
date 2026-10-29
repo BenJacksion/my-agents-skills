@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品假设测试"
+  short_description: "拆解产品方案的高风险假设，设计可证伪实验与明确的停止复审条件"
+  default_prompt: "使用 $product-assumption-testing 拆解这个方案的关键假设并设计验证实验。"

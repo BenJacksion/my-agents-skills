@@ -1,0 +1,5 @@
+interface:
+  display_name: "易变性分解"
+  short_description: "依据需求、技术与环境变化建立软件边界，比较拆分收益和接口代价"
+  default_prompt: "使用 $volatility-decomposition 审查这个系统的分解方式，并按易变性提出边界选项。"
+

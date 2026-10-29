@@ -1,0 +1,4 @@
+interface:
+  display_name: "产品思维"
+  short_description: "从用户问题连接产品结果、风险假设和实验，形成可追溯的产品决策"
+  default_prompt: "使用 $product-thinking 作为产品思维综合入口，梳理受益者、问题、结果、假设和取舍，必要时路由专项 Skill。"

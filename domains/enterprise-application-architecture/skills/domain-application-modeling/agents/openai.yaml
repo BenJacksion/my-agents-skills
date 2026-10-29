@@ -1,0 +1,4 @@
+interface:
+  display_name: "领域应用建模"
+  short_description: "从业务用例识别领域与数据责任，落实应用模块、依赖和存储决策"
+  default_prompt: "使用 $domain-application-modeling 从用例和业务规则建立领域模型、数据责任和应用分层。"

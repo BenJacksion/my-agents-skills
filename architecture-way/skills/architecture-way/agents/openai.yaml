@@ -1,4 +1,0 @@
-interface:
-  display_name: "架构之道"
-  short_description: "作为入口连接系统设计与项目设计"
-  default_prompt: "使用 $architecture-way 作为综合入口，按《架构之道》连接系统边界、验证计划和项目执行方案，必要时路由专项 Skill。"

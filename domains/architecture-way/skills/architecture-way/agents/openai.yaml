@@ -1,0 +1,4 @@
+interface:
+  display_name: "架构之道"
+  short_description: "连接系统边界、服务组合、架构验证与项目网络，比较执行选项和取舍"
+  default_prompt: "使用 $architecture-way 作为综合入口，按《架构之道》连接系统边界、验证计划和项目执行方案，必要时路由专项 Skill。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "软件工程流程"
+  short_description: "按软件生命周期路由专业能力，维护阶段质量门、交接状态和最小回退"
+  default_prompt: "使用 $software-engineering-process 判断当前软件工程阶段，选择主 Agent 和专项 Skills，并给出阶段产物、质量门和下一步；单一专项任务直接路由。"

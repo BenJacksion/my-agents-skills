@@ -1,110 +1,74 @@
 # 产品与系统架构 Agents & Skills
 
-  将互联网一手来源中的产品思维方法、《系统架构：复杂系统的产品设计与开发》中的系统架构方法、Juval Löwy《架构之道：软件构建的设计方法》的系统设计与项目设计方法、《架构真意：企业级应用架构设计方法论与实践》的企业应用架构方法，以及公开标准和产品官方文档中的本体建模方法，转化为可路由、可协作、可验证的 Agents 与 Skills。
+把产品思维、系统架构、企业应用架构、本体建模和项目设计方法转化为可调用、可交接、可验证的 Skills 与 Agents。Skill 保存专业方法，Agent 负责角色和收敛，流程层负责阶段路由。
 
-## 目录
+## 从哪里开始
 
-- `product-thinking/`：从用户问题、产品结果、假设实验和优先级取舍中形成产品决策。
-- `system-architecture-product-design/`：从系统思维、架构分析、概念创建、复杂度分解到架构决策。
-- `architecture-way/`：从易变性分解、可组合架构、架构验证到项目网络、时间/成本/风险和执行方案。
-- `enterprise-application-architecture/`：从业务用例、领域与数据到开发、运行、物理、分布式、云和数据平台架构。
-- `software-engineering-process/`：按软件生命周期编排上述能力域的 Skills、Agents、阶段门和交接。
-- [ontology-modeling/](ontology-modeling/README.md)：知识工程 RDF/OWL/SHACL 与 Palantir 对象—关系—行动本体建模，独立维护公开标准与产品文档来源。
+已有明确问题时，直接选择专项 Skill；需要跨多个专业问题收敛时，再使用综合入口。下表中的链路可按已有证据和任务范围裁剪。
 
-## 产品思维
+| 当前问题 | 能力域与综合入口 | 常用专项 |
+| --- | --- | --- |
+| 用户需要什么、怎样判断产品有效 | [产品思维](domains/product-thinking/README.md) / `$product-thinking` | 发现、结果与指标、假设实验、策略与优先级 |
+| 系统边界是什么、有哪些概念和架构选项 | [系统架构](domains/system-architecture-product-design/README.md) / `$complex-system-architecture` | 系统思维、现状映射、概念、分解、治理、决策优化 |
+| 软件如何隔离变化、组合并按计划交付 | [《架构之道》](domains/architecture-way/README.md) / `$architecture-way` | 易变性分解、可组合架构、架构验证、项目设计 |
+| 业务如何落实到应用、数据、运行和部署 | [企业应用架构](domains/enterprise-application-architecture/README.md) / `$enterprise-application-architecture` | 领域建模、5 视图、演进、分布式、云交付、数据平台 |
+| 概念、身份、关系和规则如何统一 | [本体建模](domains/ontology-modeling/README.md) / `$ontology-modeling` | RDF/OWL/SHACL、对象—关系—行动、跨模型映射 |
+| 工作跨阶段，需明确顺序和交接 | [软件工程流程](orchestration/README.md) / `$software-engineering-process` | 多 Skill 调度、工程任务纪律、阶段门与回退 |
 
-- `product-thinking/README.md`：产品思维能力域说明。
-- `product-thinking/agents/`：产品思维负责人 Agent。
-- `product-thinking/skills/`：产品思维总入口、产品发现、结果与指标、假设测试、策略与优先级 Skills。
-- `product-thinking/research.md`：基于互联网一手来源的产品思维研究与来源清单。
+例如：
 
-默认链路：
+- “使用 `$product-assumption-testing`，识别这个方案的高风险假设，设计一周内可完成的验证。”
+- “使用 `$volatility-decomposition`，根据这些历史变更检查模块边界，给出最小调整与验证方式。”
+- “使用 `$software-engineering-process`，把已有产品目标交接为应用架构和项目计划，只补缺少的输入。”
 
-```text
-产品发现 -> 结果与指标 -> 假设测试 -> 策略与优先级 -> 持续迭代
-```
+## 阅读与调用
 
-## 系统架构
+1. 明确问题后先读取目标 `SKILL.md`；只加载它要求的模式参考。
+2. 需要定位能力时看对应域的 `capability-catalog.md`；需要角色分工或跨阶段交接时再看 `agent-contracts.md` 和 `agents/`。
+3. 需要核查方法出处时读取 `research.md`、章节笔记或原始资料。研究记录保留其采集日期与证据限制。
+4. 只交付当前问题所需产物。事实、假设和决策分开记录，未运行的验证标记为计划；达到当前任务的完成条件后结束。
 
-- `system-architecture-product-design/README.md`：系统架构能力域说明。
-- `system-architecture-product-design/agents/`：系统探索、架构分析、概念设计、复杂度管理、治理和决策分析等 Agent。
-- `system-architecture-product-design/skills/`：可独立调用的架构分析、概念开发、复杂度分解、战略治理、决策优化和系统思维 Skills。
-- `system-architecture-product-design/source-materials/`：系统架构原始 OCR 与细粒度框架资料。
+Agent frontmatter 的 `skills` 是能力清单，按当前问题加载；角色名称不要求启动独立进程。下游沿用证据和未知项，不能把上游假设升级为事实。
 
-默认链路：
+## 目录与复用边界
 
-```text
-系统思维 -> 架构分析 -> 概念创建 -> 复杂度分解 -> 决策优化
-```
-
-## 《架构之道：软件构建的设计方法》
-
-- `architecture-way/README.md`：能力域说明、书籍定位、核心原则和边界。
-- `architecture-way/agents/`：系统设计与项目设计负责人 Agent。
-- `architecture-way/skills/`：架构之道总入口、易变性分解、可组合架构、架构验证和项目设计 Skills。
-- `architecture-way/research.md`：基于互联网一手来源的书籍研究与来源清单。
-
-默认链路：
+各能力域平级维护，来源和专业方法各自归属。每个域都有说明、能力目录和交接契约；流程层串联已有能力，不另建一套专业方法。
 
 ```text
-易变性分解 -> 可组合架构 -> 架构验证 -> 项目设计 -> 跟踪与反馈
+.
+├── domains/                         # 专业能力域
+│   ├── product-thinking/
+│   ├── system-architecture-product-design/
+│   ├── architecture-way/
+│   ├── enterprise-application-architecture/
+│   └── ontology-modeling/
+├── orchestration/                   # 流程编排、阶段门与工程纪律
+├── docs/                            # 跨域使用指南
+├── scripts/                         # 仓库校验工具
+├── tests/                           # 工具回归测试
+├── AGENTS.md                        # 维护规范
+└── README.md                        # 使用入口
 ```
 
-## 《架构真意》
+- `skills/<skill-name>/`：执行入口，以及按需读取的参考和 UI 元数据。
+- `agents/`：角色协议；它们是 Markdown 定义，需由支持相应角色的运行环境调用。
+- `research.md`、章节笔记、`source-materials/`：证据及方法背景，不要求每次执行时全部加载。
 
-- `enterprise-application-architecture/README.md`：企业级应用架构能力域说明、书籍定位和边界。
-- `enterprise-application-architecture/agents/`：企业应用总架构、应用设计、分布式与数据架构 Agent。
-- `enterprise-application-architecture/skills/`：5 视图、领域建模、架构演进、分布式应用、云端交付和数据平台 Skills。
-- `enterprise-application-architecture/research.md`：基于互联网公开书目、目录和内容简介的研究与证据边界。
+部分 Skill 引用能力域内的研究或契约，复用时应保留能力域目录和相对路径；`software-engineering-process` 还依赖所路由的其他能力域。只复制一个 Skill 目录前，检查其中的相对引用与命名依赖。`ontology-modeling` 的执行参考已包含在自身 Skill 目录内。
 
-默认链路：
+`skill-orchestration` 管理多 Skill 的依赖与交接，`software-engineering-process` 确定软件生命周期阶段，`engineering-task-discipline` 约束变更与验证。三者按需要组合，不要求普通专项任务进入完整编排。
 
-```text
-业务目标/用例 -> 领域与数据 -> 5 视图 -> 质量属性与演进 -> 分布式/云/数据平台
+两个系统架构方法域的分工见[架构 Skills 联合使用指南](docs/architecture-skills-guide.md)。全部生命周期路由和仓库能力覆盖见[流程能力目录](orchestration/capability-catalog.md)。
+
+旧目录已迁入 `domains/`，原 `software-engineering-process/` 改为 `orchestration/`，中文指南改为 `docs/architecture-skills-guide.md`。Skill 调用名和 Agent 名称保持原值；现有安装副本如需同步，应同时更新目录及引用。
+
+## 维护与校验
+
+遵循 [AGENTS.md](AGENTS.md)。完成文档、Skill 或 Agent 变更后，在仓库根目录执行：
+
+```bash
+uv run --no-project --with pyyaml python scripts/validate_repo.py
+uv run --no-project --with pyyaml python -m unittest discover -s tests
 ```
 
-## 本体建模
-
-- `ontology-modeling/README.md`：知识工程与运营本体的模式边界和使用方式。
-- `ontology-modeling/skills/`：本体建模入口 Skill、模式参考和验证约束。
-- `ontology-modeling/research.md`：基于公开标准和产品官方文档的研究与证据边界。
-
-默认链路：
-
-```text
-能力问题/业务行动 -> 术语、身份与关系 -> 规则归属 -> 数据映射 -> 模型验证 -> 版本演进
-```
-
-## 软件工程流程
-
-- `software-engineering-process/README.md`：项目级生命周期和能力域边界。
-- `software-engineering-process/capability-catalog.md`：全部 Skills/Agents 的阶段路由表。
-- `software-engineering-process/agent-contracts.md`：阶段状态、质量门、交接和回退规则。
-- `software-engineering-process/agents/software-engineering-orchestrator.md`：项目级总编排 Agent。
-
-其中 `skill-orchestration` 负责跨 Skill 的元级选择、依赖调度和交接；`software-engineering-process` 负责生命周期阶段路由，二者不合并职责。
-
-默认链路：
-
-```text
-问题与机会
-  -> 产品目标
-  -> 系统理解
-  -> 系统架构
-  -> 企业应用设计
-  -> 软件结构与项目设计
-  -> 实现与集成
-  -> 验证与发布
-  -> 运行反馈与演进
-```
-
-## 使用方式
-
-1. 用户已明确点名专项 Skill 时直接调用；否则根据问题和路由规则选择对应 Skill 或 Agent，跨阶段任务再进入流程总入口。
-2. 阅读对应能力域的 `README.md`、`capability-catalog.md` 和目标 `SKILL.md`。
-3. 按该能力域的 `agent-contracts.md` 输出事实、假设、证据、决策、风险和下一步验证行动。
-4. 缺失信息必须标记为未知；只有当缺失信息会改变方向时才集中提问。
-
-`architecture-way/` 与 `system-architecture-product-design/` 的联合使用方式参阅[架构 Skills 联合使用指南](架构Skills联合使用指南.md)。`enterprise-application-architecture/` 和 `ontology-modeling/` 是独立的平级能力域，详见各自的 `README.md`、`capability-catalog.md` 和 `agent-contracts.md`。
-
-需要按软件工程生命周期选择和串联全部能力时，参阅[软件工程流程](software-engineering-process/README.md)；该流程层只负责编排，不替代各能力域的专业方法。
+已安装 PyYAML 的 Python 环境可直接运行上述 Python 命令。检查覆盖目录结构、frontmatter、Skill/Agent 命名与引用、UI 元数据、本地链接及标题锚点、能力目录覆盖和未完成标记；不联网验证外部来源，也不替代专业模型或运行验证。

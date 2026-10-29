@@ -1,0 +1,4 @@
+interface:
+  display_name: "企业应用架构"
+  short_description: "贯通业务、领域、数据和五视图，按约束选择应用机制与演进路径"
+  default_prompt: "使用 $enterprise-application-architecture 作为综合入口，闭合业务用例、5 个架构视图和演进验证，必要时路由专项 Skill。"

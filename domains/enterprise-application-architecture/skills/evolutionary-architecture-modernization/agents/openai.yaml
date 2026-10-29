@@ -1,0 +1,4 @@
+interface:
+  display_name: "架构演进与现代化"
+  short_description: "连接现状、目标与过渡架构，以质量场景和分步验证组织遗留改造"
+  default_prompt: "使用 $evolutionary-architecture-modernization 设计这个系统从当前架构到目标架构的渐进演进路径。"

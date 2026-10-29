@@ -1,0 +1,5 @@
+interface:
+  display_name: "架构验证"
+  short_description: "验证关键行为、服务契约与质量目标，追溯证据并记录架构和项目影响"
+  default_prompt: "使用 $architecture-validation 为这个架构建立可追溯的验证矩阵和最小验证计划。"
+
