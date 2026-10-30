@@ -67,8 +67,21 @@ Agent frontmatter 的 `skills` 是能力清单，按当前问题加载；角色�
 遵循 [AGENTS.md](AGENTS.md)。完成文档、Skill 或 Agent 变更后，在仓库根目录执行：
 
 ```bash
-uv run --no-project --with pyyaml python scripts/validate_repo.py
-uv run --no-project --with pyyaml python -m unittest discover -s tests
+uv run --no-project --with pyyaml==6.0.3 python scripts/validate_repo.py
+uv run --no-project --with pyyaml==6.0.3 python -m unittest discover -s tests
 ```
 
 已安装 PyYAML 的 Python 环境可直接运行上述 Python 命令。检查覆盖目录结构、frontmatter、Skill/Agent 命名与引用、UI 元数据、本地链接及标题锚点、能力目录覆盖和未完成标记；不联网验证外部来源，也不替代专业模型或运行验证。
+
+## 案例、评估与分发
+
+| 需要做什么 | 入口 |
+| --- | --- |
+| 了解各能力如何共同完成任务 | [跨域工单案例](docs/cases/maintenance/inputs.md)，包括局部与跨阶段入口 |
+| 了解产物应写到什么程度 | [决策、验证和交接样例](docs/cases/maintenance/deliverables.md) |
+| 复算项目网络与架构权衡 | [定量案例](docs/cases/maintenance/quantitative.md) |
+| 判断 Skill 的实际执行质量 | [12 个行为场景与评审协议](docs/evaluation.md)，结构检查与行为结果分开报告 |
+| 检查依赖并构建可复用目录 | [依赖与本地分发](docs/distribution.md)，支持完整仓库包和独立本体包 |
+| 维护来源、版本与兼容性 | [维护规则](docs/maintenance.md)、[变更记录](docs/changes.md)和[验证记录](docs/validation-results.md) |
+
+[CI 工作流](.github/workflows/validate.yml)执行静态、工具、专业案例与分发验证；其自动检查不代替人工行为评估和实际业务验收。

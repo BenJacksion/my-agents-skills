@@ -1,5 +1,7 @@
 # 软件工程流程 Agents & Skills
 
+需要了解跨阶段产物的实际粒度时，参阅[工单贯穿案例](../docs/cases/maintenance/walkthrough.md)与[局部/跨阶段交接样例](../docs/cases/maintenance/deliverables.md)。案例只展示必要交接，不要求所有任务完整执行 S0–S8。
+
 本目录是项目级编排层，用软件工程生命周期组织仓库中的五个能力域：
 
 - [产品思维](../domains/product-thinking/README.md)：发现问题、定义结果、验证假设和做产品取舍；

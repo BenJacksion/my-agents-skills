@@ -1,0 +1,94 @@
+[
+  {
+    "id": "specialist-experiment", "category": "专项",
+    "prompt": "使用 $product-assumption-testing。我们打算增加自动派单，但没有访谈或使用数据。请识别高风险假设并设计一周内可完成的最小实验，不做架构设计。",
+    "context": [], "acceptable_primary": ["product-assumption-testing"],
+    "required_skills": ["product-assumption-testing"],
+    "criteria": ["区分需要、采用、可行性等关键假设", "事先定义信号和失败标准，周期仅为计划", "实验设计足以回答问题后停止"],
+    "forbidden_claims": ["访谈已完成", "自动派单已证明有效", "必须先设计完整微服务架构"]
+  },
+  {
+    "id": "specialist-five-views", "category": "专项",
+    "prompt": "使用 $application-five-views。现有单体应用中，网页直接更新工单表，定时刷新又从外部系统覆盖负责人。只审查数据责任与运行机制的矛盾，给出最小修正和验证计划。",
+    "context": [], "acceptable_primary": ["application-five-views"],
+    "required_skills": ["application-five-views"],
+    "criteria": ["识别读写权威和刷新冲突", "解释数据与运行视图的关系", "限定评审范围并保留未核实实现"],
+    "forbidden_claims": ["必须拆成微服务", "已验证刷新不会覆盖编辑"]
+  },
+  {
+    "id": "specialist-project-network", "category": "专项",
+    "prompt": "使用 $project-design。活动 A=2 天，B=3 天且依赖 A，C=4 天且依赖 A，D=2 天且依赖 B/C。B/C 有独立人员。只算工期、关键路径与浮动时间，并说明 B/C 共用一人时的影响。",
+    "context": [], "acceptable_primary": ["project-design"], "required_skills": ["project-design"],
+    "criteria": ["独立资源下工期 8 天、关键路径 A-C-D、B 总浮动 1 天", "解释共用不可并行资源下的顺序约束与 11 天示例", "不把教学估算升级为实际项目承诺"],
+    "forbidden_claims": ["增加人员一定能继续缩短关键路径", "已经完成项目交付"]
+  },
+  {
+    "id": "boundary-ontology-or-domain", "category": "边界",
+    "prompt": "两个系统中同一个员工有不同标识，工单的负责人有生效时间。我们要共享语义并查询历史负责人，不讨论代码分层。应怎样选择能力并开始建模？",
+    "context": [], "acceptable_primary": ["ontology-modeling"], "required_skills": ["ontology-modeling"],
+    "criteria": ["以身份和时间问题选择本体专项", "区分人员实体与源记录", "有时间的指派评估为关联实体，先明确查询语义"],
+    "forbidden_claims": ["两个源记录直接 owl:sameAs", "必须购买 Foundry", "先按数据库表划分聚合就能解决身份"]
+  },
+  {
+    "id": "boundary-tables-only", "category": "边界",
+    "prompt": "仅需要给已有关系数据库的工单表增加负责人外键和唯一性约束，业务身份与语义已确认。不需要知识图谱、共享词汇或应用架构设计。请选择合适处理方式。",
+    "context": [], "acceptable_primary": [], "required_skills": [],
+    "criteria": ["识别这是仓库现有专业能力之外的数据库实现任务", "把需求交接给适用的实现能力或工程人员", "不为路由强加本体或完整架构流程"],
+    "forbidden_claims": ["必须建立 OWL 本体", "本仓库已具备数据库迁移执行 Agent"]
+  },
+  {
+    "id": "boundary-volatility-or-system", "category": "边界",
+    "prompt": "使用 $volatility-decomposition。系统目标、利益相关者和边界已经确认，当前只想根据三次支付渠道替换的历史，审查变化传播。请说明需要的证据和最小产物。",
+    "context": [], "acceptable_primary": ["volatility-decomposition"], "required_skills": ["volatility-decomposition"],
+    "criteria": ["复用已确认系统边界", "用实际变更和依赖识别易变点及传播", "缺少具体历史时提出所需输入，不编造耦合结论"],
+    "forbidden_claims": ["必须重新开展完整产品发现", "已从未提供的代码定位了传播路径"]
+  },
+  {
+    "id": "handoff-product-to-architecture", "category": "交接",
+    "prompt": "使用 $software-engineering-process。根据提供的工单教学输入，展示从产品问题到最小应用方案的交接，只交付当前方向与下一步验证，不实施。",
+    "context": ["docs/cases/maintenance/inputs.md"],
+    "acceptable_primary": ["software-engineering-process"],
+    "required_skills": ["software-engineering-process", "product-outcomes-metrics", "domain-application-modeling"],
+    "criteria": ["选择一个负责收敛的主阶段，说明已有输入与必要下游能力", "教学输入与待验证假设保持原状态", "交接包含读写权威、质量约束和未验证项"],
+    "forbidden_claims": ["用户研究已证明基线", "原型已经上线", "跨阶段必须启动多个 Agent 进程"]
+  },
+  {
+    "id": "handoff-semantic-to-implementation", "category": "交接",
+    "prompt": "本体教学模型的本地查询和 SHACL 已通过，但没有连接 Foundry。请把语义结果交接为运营行动的设计输入，重点说明执行与权限的未决项。",
+    "context": ["domains/ontology-modeling/skills/ontology-modeling/references/executable-example.md"],
+    "acceptable_primary": ["ontology-modeling", "software-engineering-process"],
+    "required_skills": ["ontology-modeling"],
+    "criteria": ["复用身份、角色、有效时间与数据契约", "区分本地通过和平台未运行", "交接准入、授权、并发、刷新与副作用责任"],
+    "forbidden_claims": ["SHACL 通过意味着行动授权通过", "Foundry 已部署", "通知与外部写入默认全局原子提交"]
+  },
+  {
+    "id": "handoff-feedback-smallest-return", "category": "交接",
+    "prompt": "使用 $software-engineering-process。已有工单系统运行反馈显示，重新指派时旧负责人记录被覆盖，历史查询无法解释；产品目标和人员角色没有变化。请定位最小回退范围。",
+    "context": [], "acceptable_primary": ["software-engineering-process", "ontology-modeling"],
+    "required_skills": ["ontology-modeling"],
+    "criteria": ["回到 S4 的时间、数据或映射设计，按需追查行动更新", "保留未变的产品目标和系统边界", "区分问题证据、可能原因、修正与回归场景"],
+    "forbidden_claims": ["必须从 S1 重跑全流程", "未经核实认定平台缺陷", "已恢复不存在的历史备份"]
+  },
+  {
+    "id": "unknown-ontology-mode", "category": "缺失与冲突",
+    "prompt": "帮我做一个本体，目前没有补充材料。",
+    "context": [], "acceptable_primary": ["ontology-modeling"], "required_skills": ["ontology-modeling"],
+    "criteria": ["集中澄清待回答问题或业务行动，以及已有材料", "目标不明时不默认联合模式", "可以说明最小输入，不编造行业与对象模型"],
+    "forbidden_claims": ["默认使用 Foundry", "默认联合 RDF 与运营模式", "假定用户是制造业并给出确定模型"]
+  },
+  {
+    "id": "conflict-authority", "category": "缺失与冲突",
+    "prompt": "工单负责人由系统 A 唯一维护，同时又要求系统 B 可离线修改负责人且自动覆盖 A，不允许任何冲突或协调机制。请直接给出一致性架构。",
+    "context": [], "acceptable_primary": ["distributed-application-architecture", "domain-application-modeling", "enterprise-application-architecture"],
+    "required_skills": [],
+    "criteria": ["识别唯一写权威与无协调覆盖要求的冲突", "集中澄清能调整的权威、离线或冲突要求", "可以给条件化选项，不能默默替用户放宽条件"],
+    "forbidden_claims": ["消息队列自动保证这些要求同时成立", "无需协调即可在所有情况下强一致"]
+  },
+  {
+    "id": "unknown-production-evidence", "category": "缺失与冲突",
+    "prompt": "使用 $architecture-validation。只有架构图和测试计划，没有代码、环境或运行结果。请判断是否可以宣布生产验收通过。",
+    "context": [], "acceptable_primary": ["architecture-validation"], "required_skills": ["architecture-validation"],
+    "criteria": ["可以审查设计闭合度，但运行验证标为未运行", "指出发布范围内缺少的关键证据与责任", "停止于证据边界，不生成虚假的通过报告"],
+    "forbidden_claims": ["架构图完整即生产验收通过", "计划中的性能指标已经达到"]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "provenance": "自行构造的教学估算和主观效用分；不是实测成本、业务基线或交付承诺",
+  "duration_unit": "工作日",
+  "activities": [
+    {"id": "A", "description": "确认身份与指派数据契约", "duration": 2, "depends_on": []},
+    {"id": "B", "description": "实现指派边界与接口", "duration": 3, "depends_on": ["A"]},
+    {"id": "C", "description": "完成数据映射和历史查询", "duration": 4, "depends_on": ["A"]},
+    {"id": "D", "description": "执行端到端集成验收", "duration": 2, "depends_on": ["B", "C"]}
+  ],
+  "max_cost": 10,
+  "cost_unit": "教学成本单位",
+  "candidates": [
+    {"id": "manual", "cost": 4, "utility": {"simplicity": 90, "automation": 40}},
+    {"id": "assisted", "cost": 8, "utility": {"simplicity": 70, "automation": 80}},
+    {"id": "inferior", "cost": 7, "utility": {"simplicity": 60, "automation": 50}},
+    {"id": "automatic", "cost": 15, "utility": {"simplicity": 40, "automation": 95}}
+  ],
+  "weight_scenarios": {
+    "simplicity_first": {"simplicity": 0.8, "automation": 0.2},
+    "automation_first": {"simplicity": 0.3, "automation": 0.7}
+  }
+}

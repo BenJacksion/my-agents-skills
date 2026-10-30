@@ -43,6 +43,7 @@
 - 专业能力域统一放在 `domains/` 下平级维护，不把一个能力域的文件放入另一个能力域目录，也不在根目录新增专业能力域。
 - `orchestration/` 是项目级流程编排层，只负责按软件生命周期路由现有 Skills/Agents、管理阶段门和交接状态，不承载新的书籍方法论。
 - `docs/` 保存跨能力域的使用指南；`scripts/` 和 `tests/` 分别保存仓库维护工具与其测试。
+- 跨域教学输入与交付样例放在 `docs/cases/`；行为场景放在 `tests/evals/`，CI 配置放在 `.github/workflows/`。模拟输入、教学估算和真实业务证据明确区分。
 - 原始资料和中间研究放入对应能力域的 `research.md` 或 `source-materials/`。
 - 每个能力域及 `orchestration/` 均保留 `README.md`、`capability-catalog.md` 和 `agent-contracts.md`；说明、路由和交接各自维护，避免复制专业方法。
 
@@ -74,6 +75,7 @@
 - 移动前后核对文件清单和内容，必要时比较哈希；路径修正与内容修改分开验证，保留已有未提交工作。
 - Skill 调用名与目录位置分别管理；单纯调整上层目录不改变 Skill 或 Agent 名称。
 - 部分 Skill 依赖能力域内的研究、契约或其他 Skill。复用时保留所需结构；工作区迁移完成不代表个人安装副本已同步。
+- 分发方式见 [docs/distribution.md](docs/distribution.md)：在新目录构建并验证文件清单、哈希与包内引用，不覆盖个人安装副本。来源与版本变更遵循[维护规则](docs/maintenance.md)。
 
 ## 目标驱动执行
 
@@ -87,18 +89,19 @@
 - 文档、Skill、Agent 或目录变更后，在仓库根目录执行统一检查：
 
   ```bash
-  uv run --no-project --with pyyaml python scripts/validate_repo.py
+  uv run --no-project --with pyyaml==6.0.3 python scripts/validate_repo.py
   ```
 
 - 修改校验脚本或测试时，再运行回归用例：
 
   ```bash
-  uv run --no-project --with pyyaml python -m unittest discover -s tests
+  uv run --no-project --with pyyaml==6.0.3 python -m unittest discover -s tests
   ```
 
 - 统一检查覆盖目录结构、frontmatter、命名、Agent 的 Skill 引用、UI 元数据、本地链接与锚点、能力目录覆盖及未完成标记。
 - 专业模型、示例代码或计算逻辑发生变化时，补充与风险相称的运行验证；静态校验通过不能替代专业验证或外部来源核验。
 - 验证结果标为通过、失败、未运行或不适用，并保留证据或原因；验证计划不得写成已执行结果。
+- 行为评估按 [docs/evaluation.md](docs/evaluation.md)记录输入、模型/环境、加载轨迹、回答和评审证据。数据集结构校验、专业计算回归及 CI 通过均不代表模型行为评估通过。
 - 最终回复说明修改了什么、验证了什么，以及仍未处理的风险。
 
 ## 输出要求

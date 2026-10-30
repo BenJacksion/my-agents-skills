@@ -80,6 +80,8 @@ metadata:
 
 ## 来源依据
 
+需要复算固定工期网络、浮动时间和资源顺序影响时，参阅仓库内[定量案例](../../../../docs/cases/maintenance/quantitative.md)。它是教学计算，不替代真实资源估算或任意资源约束排程。
+
 - [InformIT：How to Calculate Risk in Your Projects](https://www.informit.com/articles/article.aspx?p=2995358)
 - [Righting Software 官方视频页](https://rightingsoftware.org/videos.html)
 - [InformIT 书籍完整目录](https://www.informit.com/store/righting-software-9780136524038)

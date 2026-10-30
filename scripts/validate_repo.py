@@ -75,6 +75,29 @@ def capability_roots(root):
     return sorted(paths)
 
 
+def validate_markdown(root):
+    """也供独立 Skill 分发包使用，链接不得借用包外工作区文件。"""
+    root = Path(root).resolve()
+    errors = []
+    for path in sorted(root.rglob("*.md")):
+        if any(part.startswith(".") for part in path.relative_to(root).parts):
+            continue
+        text = prose(path.read_text(encoding="utf-8"))
+        if "source-materials" not in path.parts and re.search(r"\b(?:TODO|TBD|FIXME)\s*[:：]|\[(?:TODO|TBD|FIXME)\]", text):
+            errors.append(f"{path.relative_to(root)}: 存在未完成标记")
+        for match in list(LINK.finditer(text)) + list(REFERENCE.finditer(text)):
+            target = match[1] or match[2]
+            url = urlsplit(target)
+            if url.scheme or url.netloc:
+                continue
+            dest = (path.parent / unquote(url.path)).resolve() if url.path else path
+            if not dest.is_relative_to(root) or not dest.exists():
+                errors.append(f"{path.relative_to(root)}: 本地链接不存在或越出仓库：{target}")
+            elif url.fragment and dest.suffix == ".md" and unquote(url.fragment) not in anchors(dest.read_text()):
+                errors.append(f"{path.relative_to(root)}: 标题锚点不存在：{target}")
+    return errors
+
+
 def validate_repo(root):
     root = Path(root).resolve()
     errors = []
@@ -182,22 +205,7 @@ def validate_repo(root):
             if not isinstance(name, str) or name not in skills:
                 error(path, f"引用不存在的 Skill：{name}")
 
-    for path in sorted(root.rglob("*.md")):
-        if any(part.startswith(".") for part in path.relative_to(root).parts):
-            continue
-        text = prose(path.read_text(encoding="utf-8"))
-        if "source-materials" not in path.parts and re.search(r"\b(?:TODO|TBD|FIXME)\s*[:：]|\[(?:TODO|TBD|FIXME)\]", text):
-            error(path, "存在未完成标记")
-        for match in list(LINK.finditer(text)) + list(REFERENCE.finditer(text)):
-            target = match[1] or match[2]
-            url = urlsplit(target)
-            if url.scheme or url.netloc:
-                continue
-            dest = (path.parent / unquote(url.path)).resolve() if url.path else path
-            if not dest.is_relative_to(root) or not dest.exists():
-                error(path, f"本地链接不存在或越出仓库：{target}")
-            elif url.fragment and dest.suffix == ".md" and unquote(url.fragment) not in anchors(dest.read_text()):
-                error(path, f"标题锚点不存在：{target}")
+    errors.extend(validate_markdown(root))
 
     index = root / "orchestration/capability-catalog.md"
     if index.is_file():
